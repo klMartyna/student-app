@@ -1,4 +1,4 @@
-const Form = ({setInputText, inputText}) => {
+const Form = ({setInputText, inputText, setButtonClicked}) => {
 
     const inputTextHandler = (e) => {
         setInputText(e.target.value);
@@ -6,6 +6,7 @@ const Form = ({setInputText, inputText}) => {
     
     const submitStudentHandler = async (e) => {
         e.preventDefault();
+        setButtonClicked(true)
 
         const firstAndLastName = inputText.split(" ");
         const firstName = firstAndLastName.shift();
@@ -33,8 +34,10 @@ const Form = ({setInputText, inputText}) => {
         } else {
             console.log("Student data submitted")
         }
+
         console.log(student_data)
         setInputText("");
+        setButtonClicked(false)
     };
 
     return (<form>

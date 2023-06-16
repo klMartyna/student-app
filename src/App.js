@@ -2,9 +2,12 @@ import React, { useState } from "react";
 
 import './style.css';
 import Form from './components/Form';
+import StudentList from "./components/StudentList"; 
 
 function App() {
   const [inputText, setInputText] = useState("");
+  const [students, setStudents] = useState([])
+  const [buttonClicked, setButtonClicked] = useState(false)
 
   return (
     <div className="App">
@@ -14,7 +17,9 @@ function App() {
       <Form
        inputText={inputText}
        setInputText={setInputText}
+       setButtonClicked={setButtonClicked}
        />
+      <StudentList students={students} setStudents={setStudents} buttonClicked={buttonClicked}/>
     </div>
   );
 }
