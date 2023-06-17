@@ -1,12 +1,12 @@
-const Form = ({setInputText, inputText, setButtonClicked}) => {
+const Form = ({setInputText, inputText, buttonClicked, setButtonClicked}) => {
 
     const inputTextHandler = (e) => {
         setInputText(e.target.value);
-    }
+    };
     
     const submitStudentHandler = async (e) => {
         e.preventDefault();
-        setButtonClicked(true)
+        setButtonClicked(buttonClicked + 1);
 
         const firstAndLastName = inputText.split(" ");
         const firstName = firstAndLastName.shift();
@@ -15,7 +15,7 @@ const Form = ({setInputText, inputText, setButtonClicked}) => {
         const submitted_student_data = {
             "first_name": `${firstName}`, 
             "last_name": `${restOfNames}` 
-        }
+        };
 
         const requestOptions = {
             method: "POST",
@@ -33,11 +33,10 @@ const Form = ({setInputText, inputText, setButtonClicked}) => {
             console.log("Something went wrong");
         } else {
             console.log("Student data submitted")
-        }
+        };
 
-        console.log(student_data)
+        console.log(student_data);
         setInputText("");
-        setButtonClicked(false)
     };
 
     return (<form>
@@ -45,6 +44,7 @@ const Form = ({setInputText, inputText, setButtonClicked}) => {
          value={inputText}
          onChange={inputTextHandler}
          type="text"
+         placeholder="Submit student data"
          className="student-input" />
         <button onClick={submitStudentHandler}
          className="student-button" type="submit">
