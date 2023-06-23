@@ -5,7 +5,7 @@ const UpdatePopup = ({updatedInfo, inputInfoHandler, updateStudentHandler}) => {
             value={updatedInfo}
             onChange={inputInfoHandler}
             type="text"
-            placeholder="Enter update"
+            placeholder="Enter updated name and surname"
             className="student-input" />
             <button onClick={updateStudentHandler}
                 className="student-button" type="submit">
