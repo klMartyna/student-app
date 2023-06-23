@@ -44,7 +44,7 @@ const Form = ({setInputText, inputText, buttonClicked, setButtonClicked}) => {
          value={inputText}
          onChange={inputTextHandler}
          type="text"
-         placeholder="Submit student data"
+         placeholder="Enter student name and surname"
          className="student-input" />
         <button onClick={submitStudentHandler}
          className="student-button" type="submit">
